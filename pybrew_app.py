@@ -26,10 +26,15 @@ class PyBrew(object):
         self.app.menu = [self.update_button, self.upgrade_button]
 
     def set_up_menu(self):
-        """Sets up the menu"""
+        """
+        Sets up the menu
+        """
         self.app.title = "🍺"
 
     def homebrew_action(self, sender):
+        """
+        Runs the selected command.
+        """
         for key, value in self.config.items():
             if value == sender.title:
                 cmd = f"brew {key}"
@@ -44,5 +49,7 @@ class PyBrew(object):
         rumps.notification(title=self.config["app_name"], subtitle=f"{cmd}", message=msg.stdout)
 
     def run(self):
-        """runs the app"""
+        """
+        runs the app
+        """
         self.app.run()
